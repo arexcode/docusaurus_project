@@ -9,69 +9,31 @@ import styles from './index.module.css';
 const sidebarItems = [
   {
     type: 'doc',
-    id: 'intro',
-    label: 'Inicio',
-  },
-  {
-    type: 'doc',
-    id: 'settings',
+    id: 'configuracion',
     label: 'Configuración',
   },
-  {
-    type: 'doc',
-    id: 'profile',
-    label: 'Perfil',
-  },
-  {
-    type: 'doc',
-    id: 'notifications',
-    label: 'Notificaciones',
-  },
-  {
-    type: 'doc',
-    id: 'help',
-    label: 'Ayuda',
-  }
 ];
 
 const features = [
   {
-    icon: '🔒',
+    title: 'Instalación Rápida',
+    description: 'Guía paso a paso para instalar y configurar tu gestor de contraseñas en diferentes dispositivos.',
+    icon: '⚡',
+  },
+  {
     title: 'Seguridad Avanzada',
-    description: 'Encriptación de última generación para proteger tus contraseñas',
+    description: 'Aprende las mejores prácticas para mantener tus contraseñas seguras y protegidas.',
+    icon: '🔒',
   },
   {
-    icon: '🔄',
     title: 'Sincronización',
-    description: 'Accede a tus contraseñas desde cualquier dispositivo',
+    description: 'Configura la sincronización entre dispositivos para acceder a tus contraseñas desde cualquier lugar.',
+    icon: '🔄',
   },
   {
-    icon: '🎯',
-    title: 'Generador de Contraseñas',
-    description: 'Crea contraseñas seguras y únicas al instante',
-  },
-  {
-    icon: '📱',
-    title: 'Autocompletado',
-    description: 'Rellena automáticamente tus credenciales en sitios web',
-  },
-];
-
-const securityFeatures = [
-  {
-    icon: '🛡️',
-    title: 'Encriptación de Nivel Militar',
-    description: 'Protección AES-256 para tus datos más sensibles',
-  },
-  {
-    icon: '🔐',
-    title: 'Verificación en Dos Pasos',
-    description: 'Autenticación adicional para mayor seguridad',
-  },
-  {
-    icon: '📊',
-    title: 'Auditoría de Seguridad',
-    description: 'Monitorea el acceso a tus contraseñas',
+    title: 'Generación de Contraseñas',
+    description: 'Utiliza el generador de contraseñas para crear claves seguras y únicas.',
+    icon: '🔑',
   },
 ];
 
@@ -85,28 +47,20 @@ function Feature({icon, title, description}) {
   );
 }
 
-function SecurityFeature({icon, title, description}) {
-  return (
-    <div className={styles.securityCard}>
-      <div className={styles.securityIcon}>{icon}</div>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
-  );
-}
-
 function HomepageHeader() {
   return (
     <div className={styles.heroSection}>
       <div className={styles.heroContent}>
-        <h1>SecurePass</h1>
-        <p className={styles.heroSubtitle}>Tu gestor de contraseñas seguro y confiable</p>
+        <h1>Manual de Gestor de Contraseñas</h1>
+        <p className={styles.heroSubtitle}>
+          Guía completa para implementar y utilizar un gestor de contraseñas de forma segura y eficiente
+        </p>
         <div className={styles.ctaButtons}>
-          <Link className={styles.primaryButton} to="/docs/intro">
-            Comenzar Gratis
+          <Link className={styles.primaryButton} to="/docs/introduccion">
+            Comenzar a Leer
           </Link>
-          <Link className={styles.secondaryButton} to="/docs/intro">
-            Ver Demo
+          <Link className={styles.secondaryButton} to="/docs/instalacion">
+            Instalación Rápida
           </Link>
         </div>
       </div>
@@ -122,7 +76,7 @@ function HomepageHeader() {
 function FeaturesSection() {
   return (
     <section className={styles.featuresSection}>
-      <h2>Características Principales</h2>
+      <h2>Contenido del Manual</h2>
       <div className={styles.featuresGrid}>
         {features.map((props, idx) => (
           <Feature key={idx} {...props} />
@@ -135,11 +89,29 @@ function FeaturesSection() {
 function SecuritySection() {
   return (
     <section className={styles.securitySection}>
-      <h2>Seguridad de Primer Nivel</h2>
+      <h2>¿Por qué usar un gestor de contraseñas?</h2>
       <div className={styles.securityGrid}>
-        {securityFeatures.map((props, idx) => (
-          <SecurityFeature key={idx} {...props} />
-        ))}
+        <div className={styles.securityCard}>
+          <div className={styles.securityIcon}>🔐</div>
+          <h3>Seguridad Mejorada</h3>
+          <p>
+            Almacena todas tus contraseñas de forma segura y accede a ellas con una única contraseña maestra.
+          </p>
+        </div>
+        <div className={styles.securityCard}>
+          <div className={styles.securityIcon}>🔄</div>
+          <h3>Acceso Multi-dispositivo</h3>
+          <p>
+            Sincroniza tus contraseñas entre todos tus dispositivos de forma segura y automática.
+          </p>
+        </div>
+        <div className={styles.securityCard}>
+          <div className={styles.securityIcon}>🎯</div>
+          <h3>Productividad</h3>
+          <p>
+            Ahorra tiempo con autocompletado y generación automática de contraseñas seguras.
+          </p>
+        </div>
       </div>
     </section>
   );
@@ -148,8 +120,8 @@ function SecuritySection() {
 export default function Home() {
   return (
     <Layout
-      title="SecurePass - Gestor de Contraseñas Seguro"
-      description="Gestiona tus contraseñas de forma segura y sencilla">
+      title="Manual de Gestor de Contraseñas"
+      description="Guía completa para implementar y utilizar un gestor de contraseñas de forma segura y eficiente">
       <div className={styles.homePage}>
         <DocSidebar items={sidebarItems} />
         <div className={styles.mainContent}>
